@@ -9,6 +9,12 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
      */
     $scope.addListing = function() {};
     $scope.deleteListing = function(index) {};
-    $scope.showDetails = function(index) {};
+    $scope.showDetails = function(index) {
+      $scope.code = index.code;
+      $scope.name = index.name;
+      $scope.address = index.address;
+      $scope.coordinatesLong = index.coordinates.longitude;
+      $scope.coordinatesLat = index.coordinates.latitude;
+    };
   }
 ]);
