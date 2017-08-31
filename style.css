@@ -5,4 +5,25 @@
 .tableWrapper {
   max-height: 400px;
   overflow: auto;
+  margin: 15px 10px;
+}
+
+#adder {
+	margin: 5px;
+}
+
+body {
+	background-color: #2020D7;
+}
+
+#tab {
+	background-color: #FFA233;
+}
+
+#title {
+	color: #FFA233;
+}
+
+#btn1 {
+	background-color: #2020D7;
 }
