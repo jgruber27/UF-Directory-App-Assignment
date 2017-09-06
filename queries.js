@@ -1,9 +1,17 @@
 /* Fill out these functions using Mongoose queries*/
 
+var fs = require('fs'),
+    mongoose = require('mongoose'), 
+    Schema = mongoose.Schema, 
+    Listing = require('./ListingSchema.js'), 
+    config = require('./config');
+
+mongoose.connect(config.db.uri);
+
 var findLibraryWest = function() {
   Listing.find({code: 'LBW' }, function(err, listing){
     if (err) throw err;
-    console.log(listing);
+    console.log('\n' + listing);
   });
   /* 
     Find the document that contains data corresponding to Library West,
@@ -11,12 +19,9 @@ var findLibraryWest = function() {
    */
 };
 var removeCable = function() {
-  Listing.find({code: 'CABL' }, function(err, listing){
+  Listing.findOneAndRemove({code: 'CABL' }, function(err){
     if (err) throw err;
-    listing.remove(function(err) {
-      if (err) throw err;
-      console.log('CABL deleted!');
-    });
+    console.log('\nCABL Deleted!');
   });
   /*
     Find the document with the code 'CABL'. This cooresponds with courses that can only be viewed 
@@ -25,14 +30,9 @@ var removeCable = function() {
    */
 };
 var updatePhelpsLab = function() {
-  Listing.find({code: 'PHL' }, function(err, listing){
+  Listing.findOneAndUpdate({code: 'PHL' }, {address: 'hello'}, function(err, listing){
     if (err) throw err;
-    listing.address = '432 Newell Dr, Gainesville, FL 32611, United States';
-
-    user.save(function(err){
-      if (err) throw err;
-      console.log('PHL address updated!');
-    });
+    console.log('\nPHL Address updated!');
   });
   /*
     Phelps Laboratory's address is incorrect. Find the listing, update it, and then 
@@ -48,6 +48,8 @@ var retrieveAllListings = function() {
     Retrieve all listings in the database, and log them to the console. 
    */
 };
+
+
 
 findLibraryWest();
 removeCable();
