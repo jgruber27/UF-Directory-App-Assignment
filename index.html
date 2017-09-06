@@ -9,7 +9,7 @@
   <body ng-app="directoryApp">
     <div class="container">
       <div class="row">
-        <h1 id="title">UF Directory App</h1>
+        <h1 id="title" class='text-center'>UF Directory App</h1>
       </div>
       <div class="row" ng-controller="ListingsController">
         <div class="col-md-6">
@@ -36,7 +36,9 @@
               	<th>{{listing.code}}</th>
               	<th>{{listing.name}}</th>
               	<th id="title"><button ng-click=showDetails(listing) id="btn1">Details</button></th>
-                <th><button ng-click=deleteListing($index) class="btn-danger">Delete</button></th>
+                <th><button ng-click=deleteListing($index) class="btn-danger">
+                  <span class='glyphicon glyphicon-minus'></span>
+                </button></th>
               </tr>
               <!-- 
 
@@ -49,7 +51,7 @@
           </div>
           <div class="jumbotron">
           	<div>
-          		<h2>Add a new building.</h2>
+          		<h2 class='text-center'>Add a new building.</h2>
           		<p>Code: 
           		<input type="text" class="form-control" placeholder="Enter Input..." id="adder" ng-model="newCode">
           		</p>
@@ -65,8 +67,9 @@
           		<p>Longitude: 
           		<input type="text" class="form-control" placeholder="Enter Input..." id="adder" ng-model="newLongitude">
           		</p>
-          		<p id="title">
-          			<button ng-click=addListing() id="btn1">Add Building</button>
+          		<p id="title" class='text-center'>
+          		  <button ng-click=addListing() id="btn1">
+                Add Building</button>
       			</p>
       		</div>
           	
@@ -81,7 +84,7 @@
         </div>
         <div class="col-md-6">
           <div class="jumbotron">
-            <h2>Detailed Information</h2>
+            <h2 id='beld' class='text-center'>Detailed Information</h2>
             <p>Code: {{code}}</p>
             <p>Name: {{name}}</p>
             <p>Address: {{address}}</p>
