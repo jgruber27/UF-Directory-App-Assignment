@@ -32,7 +32,7 @@
                 <th></th>
                 <th></th>
               </tr>
-              <tr ng-repeat="listing in listings | filter:input | orderBy: 'code'">
+              <tr ng-repeat="listing in listings | filter:input">
               	<th>{{listing.code}}</th>
               	<th>{{listing.name}}</th>
               	<th id="title"><button ng-click=showDetails(listing) id="btn1">Details</button></th>
@@ -71,6 +71,9 @@
           		  <button ng-click=addListing() id="btn1">
                 Add Building</button>
       			</p>
+            <p class="alert-danger">
+            {{error}}
+            </p>
       		</div>
           	
           </div>

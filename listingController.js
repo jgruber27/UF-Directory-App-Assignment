@@ -8,8 +8,16 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       as described in the assignment spec. 
      */
     $scope.addListing = function() {
-      $scope.listings.push({'code' : $scope.newCode, 'name' : $scope.newName, 'address' : $scope.newAddress});
-      
+    	if($scope.newCode &&  $scope.newName &&  $scope.newAddress){
+		      $scope.listings.push({'code' : $scope.newCode, 'name' : $scope.newName, 'address' : $scope.newAddress, 'coordinates': {'latitude': $scope.newLatitude, 'longitude': $scope.newLongitude}});
+		      $scope.listings.sort(function(a,b){
+		      	return a.code - b.code;
+		      });
+		    $scope.error = '';
+  		}
+    	else{
+    		$scope.error = 'Please include a Code, Name, and Address!';
+    	}
     };
     $scope.deleteListing = function(index) {
       $scope.listings.splice(index, 1);
