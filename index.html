@@ -36,7 +36,7 @@
               	<th>{{listing.code}}</th>
               	<th>{{listing.name}}</th>
               	<th id="title"><button ng-click=showDetails(listing) id="btn1">Details</button></th>
-                <th><button ng-click=deleteListing($index) class="btn-danger">
+                <th><button ng-click=deleteListing(listing) class="btn-danger">
                   <span class='glyphicon glyphicon-minus'></span>
                 </button></th>
               </tr>

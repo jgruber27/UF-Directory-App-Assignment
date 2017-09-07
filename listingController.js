@@ -19,7 +19,8 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     		$scope.error = 'Please include a Code, Name, and Address!';
     	}
     };
-    $scope.deleteListing = function(index) {
+    $scope.deleteListing = function(listing) {
+    	var index = $scope.listings.indexOf(listing);
       $scope.listings.splice(index, 1);
     };
     $scope.showDetails = function(index) {
