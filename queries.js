@@ -4,7 +4,7 @@ var fs = require('fs'),
     mongoose = require('mongoose'), 
     Schema = mongoose.Schema, 
     Listing = require('./ListingSchema.js'), 
-    config = require('./config');
+    config = require('./config.js');
 
 mongoose.connect(config.db.uri);
 
@@ -30,7 +30,7 @@ var removeCable = function() {
    */
 };
 var updatePhelpsLab = function() {
-  Listing.findOneAndUpdate({code: 'PHL' }, {address: 'hello'}, function(err, listing){
+  Listing.findOneAndUpdate({code: 'PHL' }, {address: '701 N Broadway, Sleepy Hollow, NY 10591, United States'}, function(err, listing){
     if (err) throw err;
     console.log('\nPHL Address updated!');
   });
